@@ -1,0 +1,17 @@
+// Import of the layout first
+@import "./layout/variables";
+
+
+// Import of the partial
+@import "./partial/header";
+@import "./partial/footer";
+@import "./partial/home";
+
+a, p, h1, h2, h3, h4, h5 {
+    text-decoration: none;
+    font-family: "montserrat";
+}
+
+body {
+    margin: 0;
+}
