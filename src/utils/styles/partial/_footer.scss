@@ -19,3 +19,11 @@
     margin-bottom: 0px;
   }
 }
+
+@media screen and (max-width: 570px) {
+  .Footer {
+    &__text {
+      font-size: 15px;
+    }
+  }
+}

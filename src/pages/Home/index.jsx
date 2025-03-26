@@ -1,4 +1,20 @@
 import { Link } from "react-router-dom"
+import data from "../../data.json"
+
+console.log(data)
+
+function App () {
+    const apartmentCards = data.map((apartment) => (
+        <div key={apartment.id} className="Home__card">
+            <Link to={`/AppartementCard/${apartment.id}`}></Link>
+            <h2 className="Home__card--title">{apartment.title}</h2>
+            {/* <p>{apartment.location}</p> */}
+            <img src={apartment.pictures[0]} alt={apartment.title} className="Home__card--img" />
+        </div>
+    ))
+    return <div className="Home__cards">{apartmentCards}</div>
+}
+
 function Home () {
     return (
         <div className="Home">
@@ -7,7 +23,7 @@ function Home () {
                 <div className="Home__dark"></div>
                 <h1 className="Home__text">Chez vous, partout et ailleurs</h1>
             </div>
-            {/* <Link to="/AppartementCard">Appartement COOL</Link> */}
+            <App />
         </div>
     )
 }
