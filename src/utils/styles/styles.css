@@ -404,7 +404,220 @@
     margin: 0px 20px;
   }
 }
-a, p, h1, h2, h3, h4, h5 {
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.Appartement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 100px;
+}
+.Appartement__carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1240px;
+  max-height: 415px;
+}
+.Appartement__carousel__image {
+  width: 1240px;
+  height: 415px;
+  object-fit: cover;
+  border-radius: 25px;
+  animation: fadeSlide 0.5s ease-in-out;
+}
+.Appartement__btn--left {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 50px;
+  position: absolute;
+  top: 40%;
+  left: 2%;
+  cursor: pointer;
+}
+.Appartement__btn--right {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 50px;
+  position: absolute;
+  top: 40%;
+  right: 1%;
+  cursor: pointer;
+}
+.Appartement__counter {
+  position: absolute;
+  bottom: 20px;
+  right: 45%;
+  padding: 4px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.Appartement__infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin: 30px 0px 20px 0px;
+}
+.Appartement__infos--title {
+  color: #FF6060;
+  margin: 0px;
+  font-size: 36px;
+  font-weight: 600;
+}
+.Appartement__infos--location {
+  font-size: 18px;
+  font-weight: 500;
+}
+.Appartement__infos--2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px 0px;
+}
+.Appartement__infos--host {
+  max-width: 92px;
+  color: #FF6060;
+  margin: 0px;
+  font-size: 18px;
+  font-weight: 500;
+  text-wrap: balance;
+}
+.Appartement__infos--host--img {
+  border-radius: 50%;
+  object-fit: cover;
+  max-width: 62px;
+  max-height: 62px;
+}
+.Appartement__subinfos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.Appartement__subinfos--tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.Appartement__subinfos--text {
+  background-color: #FF6060;
+  border-radius: 25px;
+  padding: 5px 10px;
+  height: 25px;
+  max-width: 115px;
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.Appartement__subinfos--rating {
+  display: flex;
+  gap: 10px;
+}
+.Appartement__down {
+  display: flex;
+  flex-direction: row;
+  gap: 75px;
+  width: 100%;
+  margin: 20px 0px;
+}
+.Appartement__description {
+  width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.Appartement__description--title {
+  background-color: #FF6060;
+  color: white;
+  margin: 0px;
+  padding: 10px 20px 10px 15px;
+  border-radius: 5px;
+  z-index: 2;
+}
+.Appartement__description--arrow {
+  position: absolute;
+  max-width: 32px;
+  max-height: 32px;
+  rotate: -90deg;
+  right: 30px;
+  top: 10px;
+  z-index: 3;
+}
+.Appartement__description--text {
+  background-color: #F6F6F6;
+  margin: 0px;
+  padding: 10px;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-in-out;
+}
+.Appartement__description--text.open {
+  animation: slideDown 0.3s ease-in-out forwards;
+}
+.Appartement__description--text.close {
+  animation: slideUp 0.3s ease-in-out forwards;
+}
+.Appartement__equipments {
+  width: 50%;
+  position: relative;
+}
+.Appartement__equipments--title {
+  background-color: #FF6060;
+  color: white;
+  margin: 0px;
+  padding: 10px 20px 10px 15px;
+  border-radius: 5px;
+  z-index: 2;
+}
+.Appartement__equipments--arrow {
+  position: absolute;
+  max-width: 32px;
+  max-height: 32px;
+  rotate: -90deg;
+  right: 30px;
+  top: 10px;
+  z-index: 3;
+}
+.Appartement__equipments__container {
+  display: flex;
+  flex-direction: column;
+}
+.Appartement__equipments--text {
+  background-color: #F6F6F6;
+  margin: 0px;
+  padding: 10px;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-in-out;
+}
+.Appartement__equipments--text.open {
+  animation: slideDown 0.3s ease-in-out forwards;
+}
+.Appartement__equipments--text.close {
+  animation: slideUp 0.3s ease-in-out forwards;
+}
+
+a, p, h1, h2, h3, h4, h5, span {
   text-decoration: none;
   font-family: "montserrat";
 }

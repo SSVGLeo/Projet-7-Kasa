@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function InfoCard({ title, text }) {
+export function InfoCard({ title, text }) {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
@@ -24,5 +24,3 @@ function InfoCard({ title, text }) {
     </div>
   );
 }
-
-export default InfoCard;

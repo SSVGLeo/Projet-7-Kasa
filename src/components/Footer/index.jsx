@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
-
 function Footer() {
   return (
     <div className="Footer">
       <img
-        src="src/assets/LOGOB.png"
+        src="../src/assets/LOGOB.png"
         alt="Kasa's black Logo"
         className="Footer__img"
       />

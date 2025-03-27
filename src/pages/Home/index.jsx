@@ -1,31 +1,28 @@
-import { Link } from "react-router-dom"
-import data from "../../data.json"
+import data from "../../data.json";
+import { Appartement } from "../../components/Appartment";
+import { Banner } from "../../components/Banner";
+console.log(data);
 
-console.log(data)
-
-function App () {
-    const apartmentCards = data.map((apartment) => (
-        <div key={apartment.id} className="Home__card">
-            <Link to={`/AppartementCard/${apartment.id}`}></Link>
-            <h2 className="Home__card--title">{apartment.title}</h2>
-            {/* <p>{apartment.location}</p> */}
-            <img src={apartment.pictures[0]} alt={apartment.title} className="Home__card--img" />
-        </div>
-    ))
-    return <div className="Home__cards">{apartmentCards}</div>
+function Home() {
+  return (
+    <div className="Home">
+        <Banner imgSrc="src/assets/ImageS1.png" title="Chez vous, partout et ailleurs" />
+      {/* <div className="Home__first">
+        <img
+          src="src/assets/ImageS1.png"
+          alt="Côte embrumée"
+          className="Home__img"
+        />
+        <div className="Home__dark"></div>
+        <h1 className="Home__text">Chez vous, partout et ailleurs</h1>
+      </div> */}
+      <div className="Home__cards">
+        {data.map((item) => (
+          <Appartement apartment={item} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
-function Home () {
-    return (
-        <div className="Home">
-            <div className="Home__first">
-                <img src="src/assets/ImageS1.png" alt="Côte embrumée" className="Home__img" />
-                <div className="Home__dark"></div>
-                <h1 className="Home__text">Chez vous, partout et ailleurs</h1>
-            </div>
-            <App />
-        </div>
-    )
-}
-
-export default Home
+export default Home;
