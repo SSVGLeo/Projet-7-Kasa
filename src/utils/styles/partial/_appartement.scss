@@ -14,6 +14,7 @@
   flex-direction: column;
   align-items: center;
   margin: 0 100px;
+  margin-bottom: 50px;
   &__carousel {
     position: relative;
     width: 100%;
@@ -21,8 +22,10 @@
     max-width: 1240px;
     max-height: 415px;
     &__image {
-      width: 1240px;
-      height: 415px;
+      width: 100%;
+      height: 100%;
+      max-height: 415px;
+      min-height: 415px;
       object-fit: cover;
       border-radius: 25px;
       animation: fadeSlide 0.5s ease-in-out;
@@ -81,8 +84,17 @@
     &--2 {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       align-items: center;
+      justify-content: flex-end;
+      max-width: 200px;
+      row-gap: 20px;
       margin: 20px 0px;
+    }
+    &--div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     &--host {
       max-width: 92px;
@@ -91,6 +103,7 @@
       font-size: 18px;
       font-weight: 500;
       text-wrap: balance;
+      text-align: end;
 
       &--img {
         border-radius: 50%;
@@ -98,6 +111,9 @@
         max-width: 62px;
         max-height: 62px;
       }
+    }
+    &--stars {
+      font-size: 24px;
     }
   }
 
@@ -116,9 +132,8 @@
     }
     &--text {
       background-color: $secondary-color;
-      border-radius: 25px;
+      border-radius: 15px;
       padding: 5px 10px;
-      height: 25px;
       max-width: 115px;
       margin: 0px;
       font-size: 14px;
@@ -191,31 +206,111 @@
       z-index: 2;
     }
     &--arrow {
-        position: absolute;
-        max-width: 32px;
-        max-height: 32px;
-        rotate: -90deg;
-        right: 30px;
-        top: 10px;
-        z-index: 3;
-      }
+      position: absolute;
+      max-width: 32px;
+      max-height: 32px;
+      rotate: -90deg;
+      right: 30px;
+      top: 10px;
+      z-index: 3;
+    }
     &__container {
       display: flex;
       flex-direction: column;
-    }
-    &--text {
-      background-color: $forth-color;
-      margin: 0px;
-      padding: 10px;
-      z-index: 1;
-      opacity: 0;
       transform: translateY(-20px);
       transition: all 0.3s ease-in-out;
+      z-index: 1;
       &.open {
         animation: slideDown 0.3s ease-in-out forwards;
       }
       &.close {
         animation: slideUp 0.3s ease-in-out forwards;
+      }
+    }
+    &--text {
+      background-color: $forth-color;
+      margin: 0px;
+      padding: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Appartement {
+    margin: 50px 20px;
+    &__carousel {
+      &__image {
+        height: 255px;
+        min-height: auto;
+      }
+    }
+    &__down {
+      flex-direction: column;
+      gap: 30px;
+    }
+    &__description,
+    &__equipments {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .Appartement {
+    margin-bottom: 27px;
+    &__btn {
+      &--left, &--right {
+        font-size: 25px;
+        top: 45%;
+      }
+    }
+    &__counter {
+      font-size: 13px;
+    }
+    &__infos {
+      flex-direction: column;
+      align-items: flex-start;
+      &--2 {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        max-width: none;
+        width: 100%;
+      }
+      &--div {
+        order: 2;
+      }
+      &--title {
+        font-size: 20px;
+      }
+      &--location {
+        font-size: 16px;
+      }
+      &--stars {
+        font-size: 18px;
+      }
+    }
+    &__subinfos {
+      &--text {
+        font-size: 12px;
+        border-radius: 10px;
+      }
+      &--rating {
+        gap: 5px;
+        order: 1;
+      }
+    }
+    &__equipments, &__description {
+      &--title {
+        font-size: 15px;
+      }
+      &--arrow {
+        max-width: 25px;
+        max-height: 25px;
+        top: 9px;
+        right: 20px;
+      }
+      &--text {
+        font-size: 12px;
       }
     }
   }

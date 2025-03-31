@@ -10,17 +10,29 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Equipment({ equipments }) {
-
+  const [isEquipmentsVisible, setIsEquipmentsVisible] = useState(false);
   return (
-    <div className="Appartement__equipments__container">
-      {equipments.map((equipments) => (
-        <p
-          key={equipments}
-          className={`Appartement__equipments--text open`}
-        >
-          {equipments}
-        </p>
-      ))}
+    <div className="Appartement__equipments">
+      <h2 className="Appartement__equipments--title">Equipements</h2>
+      <img
+        src="../../public/angle-right-solid.svg"
+        alt="Fleche droite"
+        className={`Appartement__equipments--arrow ${
+          isEquipmentsVisible ? "rotateDown" : "rotateUp"
+        }`}
+        onClick={() => setIsEquipmentsVisible(!isEquipmentsVisible)}
+      />
+      <div
+        className={`Appartement__equipments__container ${
+          isEquipmentsVisible ? "open" : "close"
+        }`}
+      >
+        {equipments.map((equipments) => (
+          <p key={equipments} className={`Appartement__equipments--text `}>
+            {equipments}
+          </p>
+        ))}
+      </div>
     </div>
   );
 }
@@ -53,8 +65,8 @@ function Appartement() {
         <FontAwesomeIcon
           key={i}
           icon={faStar}
+          className="Appartement__infos--stars"
           style={{
-            fontSize: "24px",
             color: i <= rating ? "#FF6060" : "#E3E3E3",
           }}
         />
@@ -63,7 +75,6 @@ function Appartement() {
     return stars;
   };
 
-  const [isEquipmentsVisible, setIsEquipmentsVisible] = useState(false);
   const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
 
   return (
@@ -93,26 +104,26 @@ function Appartement() {
         <div className="Appartement__infos--1">
           <h1 className="Appartement__infos--title">{apartment.title}</h1>
           <p className="Appartement__infos--location">{apartment.location}</p>
+          <div className="Appartement__subinfos--tags">
+            {apartment.tags.map((tag) => (
+              <p key={tag} className="Appartement__subinfos--text">
+                {tag}
+              </p>
+            ))}
+          </div>
         </div>
         <div className="Appartement__infos--2">
-          <p className="Appartement__infos--host">{apartment.host.name}</p>
-          <img
-            src={apartment.host.picture}
-            alt={apartment.host.picture}
-            className="Appartement__infos--host--img"
-          />
-        </div>
-      </div>
-      <div className="Appartement__subinfos">
-        <div className="Appartement__subinfos--tags">
-          {apartment.tags.map((tag) => (
-            <p key={tag} className="Appartement__subinfos--text">
-              {tag}
-            </p>
-          ))}
-        </div>
-        <div className="Appartement__subinfos--rating">
-          {renderStars(apartment.rating)}
+          <div className="Appartement__infos--div">
+            <p className="Appartement__infos--host">{apartment.host.name}</p>
+            <img
+              src={apartment.host.picture}
+              alt={apartment.host.picture}
+              className="Appartement__infos--host--img"
+            />
+          </div>
+          <div className="Appartement__subinfos--rating">
+            {renderStars(apartment.rating)}
+          </div>
         </div>
       </div>
       <div className="Appartement__down">
@@ -134,18 +145,7 @@ function Appartement() {
             {apartment.description}
           </p>
         </div>
-        <div className="Appartement__equipments">
-          <h2 className="Appartement__equipments--title">Equipements</h2>
-          <img
-            src="../../public/angle-right-solid.svg"
-            alt="Fleche droite"
-            className={`Appartement__equipments--arrow ${
-              isEquipmentsVisible ? "rotateDown" : "rotateUp"
-            }`}
-            onClick={() => setIsEquipmentsVisible(!isEquipmentsVisible)}
-          />
-          {isEquipmentsVisible && <Equipment equipments={apartment.equipments} />}
-        </div>
+        <Equipment equipments={apartment.equipments} />
       </div>
     </div>
   );
