@@ -9,33 +9,8 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Equipment({ equipments }) {
-  const [isEquipmentsVisible, setIsEquipmentsVisible] = useState(false);
-  return (
-    <div className="Appartement__equipments">
-      <h2 className="Appartement__equipments--title">Equipements</h2>
-      <img
-        src="../../public/angle-right-solid.svg"
-        alt="Fleche droite"
-        className={`Appartement__equipments--arrow ${
-          isEquipmentsVisible ? "rotateDown" : "rotateUp"
-        }`}
-        onClick={() => setIsEquipmentsVisible(!isEquipmentsVisible)}
-      />
-      <div
-        className={`Appartement__equipments__container ${
-          isEquipmentsVisible ? "open" : "close"
-        }`}
-      >
-        {equipments.map((equipments) => (
-          <p key={equipments} className={`Appartement__equipments--text `}>
-            {equipments}
-          </p>
-        ))}
-      </div>
-    </div>
-  );
-}
+import Equipment from "../../components/Equipment";
+import Description from "../../components/Description";
 
 function Appartement() {
   const { id } = useParams();
@@ -51,13 +26,11 @@ function Appartement() {
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
-
   const prevImage = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
-
   const renderStars = (rating) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
@@ -65,18 +38,13 @@ function Appartement() {
         <FontAwesomeIcon
           key={i}
           icon={faStar}
-          className="Appartement__infos--stars"
-          style={{
-            color: i <= rating ? "#FF6060" : "#E3E3E3",
-          }}
+          className={`Appartement__infos--stars ${i <= rating ? "secondary-color" : "fifth-color"}`}
+
         />
       );
     }
     return stars;
   };
-
-  const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
-
   return (
     <div className="Appartement">
       <div className="Appartement__carousel">
@@ -127,28 +95,10 @@ function Appartement() {
         </div>
       </div>
       <div className="Appartement__down">
-        <div className="Appartement__description">
-          <h2 className="Appartement__description--title">Description</h2>
-          <img
-            src="../../public/angle-right-solid.svg"
-            alt="Fleche droite"
-            className={`Appartement__description--arrow ${
-              isDescriptionVisible ? "rotateDown" : "rotateUp"
-            }`}
-            onClick={() => setIsDescriptionVisible(!isDescriptionVisible)}
-          />
-          <p
-            className={`Appartement__description--text ${
-              isDescriptionVisible ? "open" : "close"
-            }`}
-          >
-            {apartment.description}
-          </p>
-        </div>
+        <Description apartment={apartment} />
         <Equipment equipments={apartment.equipments} />
       </div>
     </div>
   );
 }
-
 export default Appartement;

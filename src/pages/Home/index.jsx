@@ -1,7 +1,6 @@
 import data from "../../data.json";
 import { Appartement } from "../../components/Appartment";
 import { Banner } from "../../components/Banner";
-console.log(data);
 
 function Home() {
   return (

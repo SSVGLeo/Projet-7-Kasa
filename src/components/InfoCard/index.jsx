@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 export function InfoCard({ title, text }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -6,9 +8,8 @@ export function InfoCard({ title, text }) {
   return (
     <div className="About__card">
       <h2 className="About__card--title">{title}</h2>
-      <img
-        src="public/angle-right-solid.svg"
-        alt="Fleche droite"
+      <FontAwesomeIcon
+        icon={faChevronLeft}
         className={`About__card--arrow ${
           isVisible ? "rotateDown" : "rotateUp"
         }`}

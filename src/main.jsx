@@ -4,14 +4,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./utils/styles/styles.css";
 
 // Importation of global elements
-import Header from "./components/Header/index.jsx";
-import Footer from "./components/Footer/index.jsx";
+import Header from "./components/Header/";
+import Footer from "./components/Footer/";
 
 // Importation of the Home page
-import Home from "./pages/Home/index.jsx";
-import Error from "./pages/Error/index.jsx";
-import Appartement from "./pages/AppartementCard/index.jsx";
-import About from "./pages/About/index.jsx";
+import Home from "./pages/Home/";
+import Error from "./pages/Error/";
+import Appartement from "./pages/Appartement/";
+import About from "./pages/About/";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

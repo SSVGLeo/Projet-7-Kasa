@@ -53,10 +53,13 @@
       position: absolute;
       max-width: 32px;
       max-height: 32px;
+      height: 100%;
+      width: 100%;
       rotate: -90deg;
       right: 128.5px;
-      top: 10px;
+      top: 7px;
       z-index: 3;
+      color: $main-color;
     }
     &--title {
       background-color: $secondary-color;
