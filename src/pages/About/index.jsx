@@ -22,7 +22,7 @@ function About() {
   ];
   return (
     <div className="About">
-      <Banner imgSrc={"src/assets/ImageS2.png"} />
+      <Banner imgSrc={"ImageS2.png"} />
       <div className="About__infos">
         {aboutData.map((item) => (
           <InfoCard title={item.title} text={item.text} key={item.title} />
