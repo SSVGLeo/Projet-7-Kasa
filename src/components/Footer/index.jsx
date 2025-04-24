@@ -2,7 +2,7 @@ function Footer() {
   return (
     <div className="Footer">
       <img
-        src="/LOGOB.png"
+        src="LOGOB.png"
         alt="Kasa's black Logo"
         className="Footer__img"
       />
